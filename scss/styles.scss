@@ -26,13 +26,13 @@
   // colors
     $font-color-1: #222222;
     $font-color-2: #fff;
-    $bg-color-1: #e8e7e7;
+    $bg-color-1: #cccccc;
     $bg-color-2: #f2f2f2;
     $button-bg-color-1: green;
     $button-txt-color-1: white;
-    $color-1: rgb(61, 156, 217);
-    $color-2: lighten($color-1, 10%);
-    $color-3: lighten($color-2, 10%);
+    $color-1: rgb(133, 32, 0);
+    $color-2: #0A2ED1;
+    $color-3: #ccc;
   // margin & padding for boxes and rows
     $l-margin: ($xl*$mult) * 1%;
     $m-margin: $l * 1%;
@@ -108,7 +108,7 @@
       background-color: $bg-color-1;
       text-align: center;
       button{
-        background-color: #0A2ED1;
+        background-color: $color-2;
         color: $font-color-2;
         padding: $m-margin $l-margin;
         border: none;
@@ -136,7 +136,7 @@
       .nav_logo{
         float: left;
         font-size: 2em;
-        background-color: rgb(133, 32, 0);
+        background-color: $color-1;
         padding: 1px 8px;
         font-family: serif;
         font-variant: small-caps;
@@ -190,8 +190,8 @@
           margin-bottom: $xs * -1em;
           z-index: $z-index-thumbnails;
           background-color: #fff;
-          height: $xl * 4em;
-          padding: $m-margin;
+          height: $xl * 3.1em;
+          padding: $s-margin;
           @media screen and (max-width: $tablet-breakpoint){
             height: $xl * 3.3em;
             padding: $m-margin;
@@ -204,7 +204,7 @@
             }
             margin-bottom: 0;
           }
-          border:#ccc 1px solid;
+          border: 1px solid $color-3;
 
           -moz-border-radius:3px;
           -webkit-border-radius:3px;
@@ -217,7 +217,7 @@
         img{
           height: $l * 1.5em;
           width: auto;
-          margin: $l-margin*1.5 0;
+          margin: $l-margin 0;
           @media screen and (max-width: $tablet-breakpoint){
             height: $m * 2em;
           }
