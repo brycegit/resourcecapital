@@ -1,0 +1,402 @@
+//sass --watch scss:css
+// VARIABLES --------------------------------
+  // scale multiplier
+    $mult: 1.618; //1.618;
+    $header-mult: $mult - .3;
+    $mobile-header-mult: $mult - .5;
+    $hero-header-mult: $mult + .3;
+  // font em values
+    $nav-em-value: 1em;
+    $em-value: 80%; //sets global em value
+    $h-em-value: 1em;
+  // view width multiplier for fonts only
+    $vw_multiplier: .5vw;
+  // breakpoints
+    $mobile-breakpoint: 750px;
+    $tablet-breakpoint: 950px;
+    $desktop-large-breakpoint: 1300px;
+    $site-max-width: 1500px;
+    $content-max-width: 800px;
+  // z-index matrix
+    $z-index-thumbnails: 999;
+  //imports
+    // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css";
+    @import "../../../Sites/template/nonProd/normalize";
+    @import "../../../Sites/template/nonProd/mixins";
+  // colors
+    $font-color-1: #222222;
+    $font-color-2: #fff;
+    $bg-color-1: #e8e7e7;
+    $bg-color-2: #f2f2f2;
+    $button-bg-color-1: green;
+    $button-txt-color-1: white;
+    $color-1: rgb(61, 156, 217);
+    $color-2: lighten($color-1, 10%);
+    $color-3: lighten($color-2, 10%);
+  // margin & padding for boxes and rows
+    $l-margin: ($xl*$mult) * 1%;
+    $m-margin: $l * 1%;
+    $s-margin: $s * 1%;
+  // font settings
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Playfair+Display:400,400i,700,700i');
+    body{
+      font-family: 'Josefin Sans', serif;
+    }
+    h1,h2,h3,h4,h5{
+      font-family: 'Playfair', serif;
+      line-height: 1.2em;
+      margin: 0 0 $xs*1em 0;
+      text-align: center;
+      // font-weight: 400;
+    }
+    p{
+      line-height: 1.8em;
+      margin: $m-margin auto 0 auto;
+      max-width: $content-max-width;
+    }
+    a{
+      color: $font-color-1;
+      text-decoration: none;
+    }
+// PAGE LAYOUT -------------------------------
+  // rows
+    .row{
+      @include row;
+      padding: $l-margin $l-margin;
+      @media screen and (max-width: $tablet-breakpoint){
+        // tablet padding
+        padding: $l-margin*2 $l-margin;
+      }
+    }
+    .row_group-first{
+      @extend .row;
+      padding-bottom: 0;
+      div{
+        margin-bottom: $l-margin;
+      }
+      @media screen and (max-width: $mobile-breakpoint){
+        div:last-of-type{
+          margin-bottom: $l-margin;
+        }
+      }
+    }
+    .row_group-last{
+      @extend .row;
+      padding-top: 0;
+    }
+  // content boxes
+    .box-33{
+      @include box($m-margin, (1 / 3) * 100%, 3);
+    }
+    .box-66{
+      @include box($m-margin, (2 / 3) * 100%, 2);
+    }
+    .box-50{
+      @include box(0, (1 / 2) * 100%, 2);
+    }
+    .box-25{
+      @include box($s-margin, (1 / 4) * 100%, 4);
+    }
+    .box-100{
+      @include box($m-margin, 100%, 1);
+    }
+// THEMES ------------------------------------
+  // name
+    .t1{
+      background-color: $bg-color-1;
+      text-align: center;
+      button{
+        background-color: #0A2ED1;
+        color: $font-color-2;
+        padding: $m-margin $l-margin;
+        border: none;
+      }
+    }
+    .t2{
+      text-align: center;
+      h3{
+        font-weight: 200;
+      }
+    }
+// COMPONENTS ---------------------------------
+  // nav
+    nav{
+      @extend %clearfix;
+      padding: $m-margin;
+      position: absolute;
+      top: -50px;
+      @media screen and (max-width: $tablet-breakpoint){
+        top: -15%;
+      }
+      @media screen and (max-width: $mobile-breakpoint){
+        top: -10%;
+      }
+      .nav_logo{
+        float: left;
+        font-size: 1.75em;
+        background-color: rgb(133, 32, 0);
+        padding: 2px;
+        font-family: times;
+        font-weight: 700;
+        color: #fff;
+      }
+      .nav_links ul{
+        text-align: right;
+        margin-top: 5px;
+      }
+      li{
+        display: inline;
+        padding-left: $m-margin;
+        a{
+          color: $font-color-2;
+        }
+      }
+    }
+  // hero
+    .hero{
+      color: $font-color-2;
+      background: linear-gradient(
+      rgba(26, 26, 26, 0.65),
+      rgba(26, 26, 26, 0.75),
+      rgba(26, 26, 26, 0.95)
+    ), url(http://cdn2.blog-media.zillowstatic.com/7/construction-loan-56ed23.jpg) no-repeat center;
+      padding: $l-margin*2 $l-margin;
+      background-size: cover;
+      h2{
+        font-weight: 300;
+        font-family: 'Josefin Sans';
+      }
+      .hero_h1{
+        font-family: 'Playfair';
+      }
+    }
+
+    // thumbnails
+      .thumbnails{
+        div[class^="box"]{
+          position: relative;
+          margin-top: $xl * -2.5em;
+          margin-bottom: $xs * -1em;
+          z-index: $z-index-thumbnails;
+          background-color: #fff;
+          height: $xl * 4em;
+          padding: $m-margin;
+          @media screen and (max-width: $tablet-breakpoint){
+            height: $xl * 3.3em;
+            padding: $m-margin;
+          }
+          @media screen and (max-width: $mobile-breakpoint){
+            position: relative;
+            margin-top: 0;
+            &:first-child{
+              margin-top: $xl * -2.5em;
+            }
+            margin-bottom: 0;
+          }
+          border:#ccc 1px solid;
+
+          -moz-border-radius:3px;
+          -webkit-border-radius:3px;
+          border-radius:3px;
+
+          -moz-box-shadow: 0 1px 2px #d1d1d1;
+          -webkit-box-shadow: 0 1px 2px #d1d1d1;
+          box-shadow: 0 1px 2px #d1d1d1;
+        }
+        img{
+          height: $l * 1.5em;
+          width: auto;
+          margin: $l-margin*1.5 0;
+          @media screen and (max-width: $tablet-breakpoint){
+            height: $m * 2em;
+          }
+          @media screen and (max-width: $tablet-breakpoint){
+            margin: $m-margin 0;
+          }
+        }
+      }
+
+  // footer
+    footer.row{
+      .footer_left{
+        float:left;
+      }
+      .float{
+        @extend %clearfix;
+      }
+      padding: $m-margin $l-margin;
+      .footer_right{
+        float:right;
+      }
+      .footer_logo{
+        font-size: 1.75em;
+        background-color: rgb(133, 32, 0);
+        padding: 2px;
+        font-family: times;
+        font-weight: 700;
+        color: #fff;
+        display: inline-block;
+        margin-bottom: $l-margin*2;
+      }
+      li{
+        list-style: none;
+        margin-bottom: $l-margin;
+      }
+      .footer_bottom{
+        text-align: center;
+        font-size: .8em;
+        margin-top: $m-margin*1.5;
+      }
+    }
+
+  // form
+    form{
+      max-width: $content-max-width;
+      margin: 0 auto;
+      text-shadow: 1px 1px 0px #fff;
+      background:#eaebec;
+      margin:20px;
+      border:#ccc 1px solid;
+
+      -moz-border-radius:3px;
+      -webkit-border-radius:3px;
+      border-radius:3px;
+
+      -moz-box-shadow: 0 1px 2px #d1d1d1;
+      -webkit-box-shadow: 0 1px 2px #d1d1d1;
+      box-shadow: 0 1px 2px #d1d1d1;
+      padding: $l-margin;
+      input{
+        padding-right: 0 !important;
+        height: $xl * 1em;
+        width: 100%;
+        display: block;
+      }
+      label{
+        display: block;
+        text-align: left;
+        margin-bottom: $m-margin;
+        font-weight: bold;
+      }
+    }
+  // map
+    .map{
+      border:#ccc 1px solid;
+
+      -moz-border-radius:3px;
+      -webkit-border-radius:3px;
+      border-radius:3px;
+
+      -moz-box-shadow: 0 1px 2px #d1d1d1;
+      -webkit-box-shadow: 0 1px 2px #d1d1d1;
+      box-shadow: 0 1px 2px #d1d1d1;
+    }
+  // table
+    table {
+    	text-shadow: 1px 1px 0px #fff;
+    	background:#eaebec;
+    	margin:20px;
+    	border:#ccc 1px solid;
+
+    	-moz-border-radius:3px;
+    	-webkit-border-radius:3px;
+    	border-radius:3px;
+
+    	-moz-box-shadow: 0 1px 2px #d1d1d1;
+    	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+    	box-shadow: 0 1px 2px #d1d1d1;
+      margin: 0 auto;
+    }
+
+    .table_header{
+      text-align: center !important;
+    }
+
+    table th {
+    	padding:21px 25px 22px 25px;
+    	border-top:1px solid #fafafa;
+    	border-bottom:1px solid #e0e0e0;
+
+    	background: #ededed;
+    	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+    	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+    }
+    table th:first-child {
+    	text-align: left;
+    	padding-left:20px;
+    }
+    table tr:first-child th:first-child {
+    	-moz-border-radius-topleft:3px;
+    	-webkit-border-top-left-radius:3px;
+    	border-top-left-radius:3px;
+    }
+    table tr:first-child th:last-child {
+    	-moz-border-radius-topright:3px;
+    	-webkit-border-top-right-radius:3px;
+    	border-top-right-radius:3px;
+    }
+    table tr {
+    	text-align: center;
+    	padding-left:20px;
+      td:last-child{
+        width: 400px;
+      }
+    }
+    table td:first-child {
+    	text-align: left;
+    	padding-left:20px;
+    	border-left: 0;
+    }
+    table td {
+    	padding:18px;
+    	border-top: 1px solid #ffffff;
+    	border-bottom:1px solid #e0e0e0;
+    	border-left: 1px solid #e0e0e0;
+
+    	background: #fafafa;
+    	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+    	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+    }
+
+    table tr:last-child td {
+    	border-bottom:0;
+    }
+    table tr:last-child td:first-child {
+    	-moz-border-radius-bottomleft:3px;
+    	-webkit-border-bottom-left-radius:3px;
+    	border-bottom-left-radius:3px;
+    }
+    table tr:last-child td:last-child {
+    	-moz-border-radius-bottomright:3px;
+    	-webkit-border-bottom-right-radius:3px;
+    	border-bottom-right-radius:3px;
+    }
+
+
+
+ //  l                         l
+ // iIi                       i^i
+ // |Il                       |i|
+ // |H i                     i"I|
+ // |H:l                     |iI|
+ // |Vb i      _______      i"II|
+ // |:M:l_.--~",..... ~"--._j HI|
+ // |`Mb.   ,jHHHMHMBb.     "-HI|
+ // | MMAa,jHHMMMMMMMMHb      :I|
+ // | VMMF "VMMMHYHMMMMMA.    `I|  "I'm Batman."
+ // | :MP   :MHI=:=IHMMMMMt    !|
+ // | `MI   .MY=: :=YMMMMP   ,a.|
+ // |  M!   jMHI=:=IHMMMMAwmAMMb|
+ // |  "Q;  MYFHHFFMMEFFEYF^:_;Dl
+ // |      jAK`'] ,>HMWWK`'].dP:H
+ // |     iMMMMMMMMMHMMMMMMMMF":H
+ // |    .:YMMMMMMMMl  "\. "~"_:T
+ // |  : : !VMMMMMMMk___,;--~X:"I
+ // |  H . :M"/ ~;"_"||~_"\. `Y H
+ // |  M.. :M:  i <.--v-.> I. : H
+ // |  Hk  `M.  :. "--w-"  H:  .H
+ // |  VMb. Vl  `ka..:H:. .F'  JH
+ // |  `VMMbYAi  "VbaHaHI::;.,jAH
+ // |   :HMMMMMk.  "^VIV'"~IkaAMH
+ // |   ;HMMMMMMMAa,.j:l.,aAMMMMH
+ // j  .dMMMMMMMMMMMHUbUHMMMMMMMHl
