@@ -69,8 +69,8 @@ p, li, button, label, table {
   font-size: calc(1em + 0.5vw); }
 
 .nav_links li {
-  font-size: 1em;
-  font-size: calc(1em + 0.5vw); }
+  font-size: 1.1em;
+  font-size: calc(1.1em + 0.5vw); }
 
 h4 {
   font-size: 1em;
@@ -89,8 +89,8 @@ h1 {
   font-size: calc(2.28953em + 0.5vw); }
 
 .hero_h1 {
-  font-size: 4.39132em;
-  font-size: calc(4.39132em + 0.5vw); }
+  font-size: 3.47551em;
+  font-size: calc(3.47551em + 0.5vw); }
 
 @media screen and (max-width: 750px) {
   h4 {
@@ -109,10 +109,10 @@ h1 {
     font-size: 1.39742em;
     font-size: calc(1.39742em + 0.5vw); } }
 body {
-  font-family: 'Josefin Sans', serif; }
+  font-family: "Josefin Sans", Helvetica, Arial, serif; }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Playfair', serif;
+  font-family: "Playfair", serif;
   line-height: 1.2em;
   margin: 0 0 0.61805em 0;
   text-align: center; }
@@ -264,31 +264,38 @@ nav {
       top: -10%; } }
   nav .nav_logo {
     float: left;
-    font-size: 1.75em;
+    font-size: 2em;
     background-color: #852000;
-    padding: 2px;
-    font-family: times;
-    font-weight: 700;
-    color: #fff; }
+    padding: 1px 8px;
+    font-family: serif;
+    font-variant: small-caps;
+    font-weight: 700; }
+    nav .nav_logo a {
+      color: #fff; }
   nav .nav_links ul {
     text-align: right;
     margin-top: 5px; }
+    .about nav .nav_links ul {
+      color: black; }
   nav li {
     display: inline;
     padding-left: 2.61792%; }
     nav li a {
       color: #fff; }
+      .about nav li a {
+        color: black; }
 
 .hero {
   color: #fff;
-  background: linear-gradient(rgba(26, 26, 26, 0.65), rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.95)), url(http://cdn2.blog-media.zillowstatic.com/7/construction-loan-56ed23.jpg) no-repeat center;
-  padding: 13.70705% 6.85353%;
+  background: linear-gradient(rgba(26, 26, 26, 0.45), rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.6), #1a1a1a), url(http://cdn2.blog-media.zillowstatic.com/7/construction-loan-56ed23.jpg) no-repeat center;
+  padding: 15.07776% 6.85353%;
   background-size: cover; }
   .hero h2 {
-    font-weight: 300;
-    font-family: 'Josefin Sans'; }
+    font-weight: 200;
+    font-family: "Josefin Sans", Helvetica, Arial, serif; }
   .hero .hero_h1 {
-    font-family: 'Playfair'; }
+    font-family: 'Playfair';
+    margin-bottom: .5em; }
 
 .thumbnails div[class^="box"] {
   position: relative;
@@ -334,13 +341,14 @@ footer.row, footer.row_group-first, footer.row_group-last {
   footer.row .footer_right, footer.row_group-first .footer_right, footer.row_group-last .footer_right {
     float: right; }
   footer.row .footer_logo, footer.row_group-first .footer_logo, footer.row_group-last .footer_logo {
+    float: left;
     font-size: 1.75em;
     background-color: #852000;
-    padding: 2px;
-    font-family: times;
+    padding: 1px 8px;
+    font-family: serif;
+    font-variant: small-caps;
     font-weight: 700;
     color: #fff;
-    display: inline-block;
     margin-bottom: 13.70705%; }
   footer.row li, footer.row_group-first li, footer.row_group-last li {
     list-style: none;

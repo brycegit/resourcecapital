@@ -4,9 +4,9 @@
     $mult: 1.618; //1.618;
     $header-mult: $mult - .3;
     $mobile-header-mult: $mult - .5;
-    $hero-header-mult: $mult + .3;
+    $hero-header-mult: $mult - .1;
   // font em values
-    $nav-em-value: 1em;
+    $nav-em-value: 1.1em;
     $em-value: 80%; //sets global em value
     $h-em-value: 1em;
   // view width multiplier for fonts only
@@ -39,11 +39,13 @@
     $s-margin: $s * 1%;
   // font settings
     @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Playfair+Display:400,400i,700,700i');
+    $h-font: 'Playfair', serif;
+    $p-font: 'Josefin Sans', Helvetica, Arial, serif;
     body{
-      font-family: 'Josefin Sans', serif;
+      font-family: $p-font;
     }
     h1,h2,h3,h4,h5{
-      font-family: 'Playfair', serif;
+      font-family: $h-font;
       line-height: 1.2em;
       margin: 0 0 $xs*1em 0;
       text-align: center;
@@ -133,22 +135,29 @@
       }
       .nav_logo{
         float: left;
-        font-size: 1.75em;
+        font-size: 2em;
         background-color: rgb(133, 32, 0);
-        padding: 2px;
-        font-family: times;
+        padding: 1px 8px;
+        font-family: serif;
+        font-variant: small-caps;
         font-weight: 700;
-        color: #fff;
+        a {color: #fff};
       }
       .nav_links ul{
         text-align: right;
         margin-top: 5px;
+        .about & {
+          color: black;
+        }
       }
       li{
         display: inline;
         padding-left: $m-margin;
         a{
           color: $font-color-2;
+          .about & {
+            color: black;
+          }
         }
       }
     }
@@ -156,18 +165,20 @@
     .hero{
       color: $font-color-2;
       background: linear-gradient(
-      rgba(26, 26, 26, 0.65),
-      rgba(26, 26, 26, 0.75),
-      rgba(26, 26, 26, 0.95)
+      rgba(26, 26, 26, 0.45),
+      rgba(26, 26, 26, 0.50),
+      rgba(26, 26, 26, 0.60),
+      rgba(26, 26, 26, 1)
     ), url(http://cdn2.blog-media.zillowstatic.com/7/construction-loan-56ed23.jpg) no-repeat center;
-      padding: $l-margin*2 $l-margin;
+      padding: $l-margin*2.2 $l-margin;
       background-size: cover;
       h2{
-        font-weight: 300;
-        font-family: 'Josefin Sans';
+        font-weight: 200;
+        font-family: $p-font;
       }
       .hero_h1{
         font-family: 'Playfair';
+        margin-bottom: .5em;
       }
     }
 
@@ -229,13 +240,14 @@
         float:right;
       }
       .footer_logo{
+        float: left;
         font-size: 1.75em;
         background-color: rgb(133, 32, 0);
-        padding: 2px;
-        font-family: times;
+        padding: 1px 8px;
+        font-family: serif;
+        font-variant: small-caps;
         font-weight: 700;
         color: #fff;
-        display: inline-block;
         margin-bottom: $l-margin*2;
       }
       li{
